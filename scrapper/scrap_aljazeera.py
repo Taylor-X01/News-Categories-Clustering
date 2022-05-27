@@ -8,6 +8,8 @@ from selenium import webdriver
 Url_politics = "https://www.aljazeera.net/news/politics/"
 Url_business = "https://www.aljazeera.net/ebusiness/"
 Url_curlture = "https://www.aljazeera.net/news/cultureandart/"
+Url_science = "https://www.aljazeera.net/news/scienceandtechnology/"
+
 opts = webdriver.ChromeOptions()
 opts.headless = False
 driver = webdriver.Chrome(
@@ -16,10 +18,15 @@ driver = webdriver.Chrome(
 # Choose your topic
 ## 1 - Politics
 # Url = Url_politics
+
 ## 2 - Culture
 # Url = Url_curlture
+
 ## 3 - Business
-Url = Url_business
+# Url = Url_business
+
+## 4 - Science
+Url = Url_science
 
 driver.get(Url)
 
@@ -34,7 +41,7 @@ class scrap_AlJazeera:
     def get_article_links(self):
         # Load Article Pages
         SCROLL_TIME_SLEEP = 1
-        for _ in range(5):
+        for _ in range(8):
             self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             try:
                 self.driver.find_element_by_xpath('//*[@id="news-feed-container"]/button').click()
@@ -85,9 +92,11 @@ class scrap_AlJazeera:
             string = ' '.join([str(item) for item in content_text])
 
             #open text file depending of the chosen topic
-            # text_file = open(f"../raw_data/politics/{i}.txt", "w", encoding='utf-8')
-            # text_file = open(f"../raw_data/culture/{i}.txt", "w", encoding='utf-8')
-            text_file = open(f"../raw_data/economy/{i}.txt", "w", encoding='utf-8')
+            # text_file = open(f"../raw_data/jazeera/politics/{i}.txt", "w", encoding='utf-8')
+            # text_file = open(f"../raw_data/jazeera/culture/{i}.txt", "w", encoding='utf-8')
+            # text_file = open(f"../raw_data/jazeera/economy/{i}.txt", "w", encoding='utf-8')
+            text_file = open(f"../raw_data/jazeera/science/{i}.txt", "w", encoding='utf-8')
+
 
             #write string to file
             text_file.write(string)
