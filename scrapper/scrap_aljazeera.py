@@ -85,9 +85,9 @@ class scrap_AlJazeera:
             string = ' '.join([str(item) for item in content_text])
 
             #open text file depending of the chosen topic
-            # text_file = open(f"../data/politics/{i}.txt", "w", encoding='utf-8')
-            # text_file = open(f"../data/culture/{i}.txt", "w", encoding='utf-8')
-            text_file = open(f"../data/economy/{i}.txt", "w", encoding='utf-8')
+            # text_file = open(f"../raw_data/politics/{i}.txt", "w", encoding='utf-8')
+            # text_file = open(f"../raw_data/culture/{i}.txt", "w", encoding='utf-8')
+            text_file = open(f"../raw_data/economy/{i}.txt", "w", encoding='utf-8')
 
             #write string to file
             text_file.write(string)
