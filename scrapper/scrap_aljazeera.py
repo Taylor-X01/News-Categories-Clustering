@@ -40,8 +40,8 @@ class scrap_AlJazeera:
 
     def get_article_links(self):
         # Load Article Pages
-        SCROLL_TIME_SLEEP = 1
-        for _ in range(8):
+        SCROLL_TIME_SLEEP = 3
+        for _ in range(60):
             self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             try:
                 self.driver.find_element_by_xpath('//*[@id="news-feed-container"]/button').click()

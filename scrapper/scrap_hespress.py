@@ -38,7 +38,7 @@ class scrap_Hespress:
         self.articles = None
 
     def get_article_links(self):
-        for _ in range(7):
+        for _ in range(100):
             time.sleep(2)
             self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
